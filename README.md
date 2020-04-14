@@ -1,4 +1,4 @@
-# Refactorer une function d'assainissement & tests
+# Refactorer une fonction d'assainissement & tests
 
 > en: refactoring a sanitizer function & tests, for an open source job board project of the french team Coding Caen Camp. This is an exercise in refactoring, following the best practices.
 
@@ -60,7 +60,7 @@ Voilà la fonction :
  *
  * @param {object} sort - sort from query parameters
  * @param {Array} sortableFields the fields allowed to be used as a sort
- * @returns {object} Ready-to-use filters for the sql query
+ * @returns {Array} Ready-to-use filters for the sql query
  */
 const sortSanitizer = (sort, sortableFields) => {
     const sortTwoFirstParameters = [

@@ -5,7 +5,7 @@
  *
  * @param {object} sort - sort from query parameters
  * @param {Array} sortableFields the fields allowed to be used as a sort
- * @returns {object} Ready-to-use filters for the sql query
+ * @returns {Array} Ready-to-use filters for the sql query
  */
 const sortSanitizer = (sort, sortableFields) => {
     const sortTwoFirstParameters = [
@@ -30,14 +30,19 @@ const sortSanitizer = (sort, sortableFields) => {
  * Method to clean the sort sent in query parameters
  *
  * @param {object} sort - sort from query parameters
- * @param {object} sortableFields the fields allowed to be used as a sort
+ * @param {Array} sortableFields the fields allowed to be used as a sort
  * @returns {Array} Ready-to-use filters for the sql query
  */
 const sortSanitizerRefactored = ({ sortBy, orderBy }, sortableFields) => {
-    const sanitizedParams = [
-        /// quelque chose
-    ];
-    return sanitizedParams;
+    if (orderBy == undefined || !sortableFields.includes(sortBy)) {
+        return [sortableFields[0], "ASC"];
+    }
+
+    if (!["ASC", "DESC"].includes(orderBy)) {
+        return [sortBy, "ASC"];
+    }
+
+    return [sortBy, orderBy];
 };
 
 module.exports = { sortSanitizer, sortSanitizerRefactored };
