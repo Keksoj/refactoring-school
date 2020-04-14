@@ -44,13 +44,13 @@ sort: {
 },
 ```
 
-`sort` était auparavant un tableau, il est désormait un objet.
+`sort` était auparavant un tableau, il est désormais un objet.
 Il faut donc refactorer la fonction
 d'assainissement `sortSanitizer`
 qui vérifie que les valeurs de `sortBy` et `orderBy`
-sont conformes et qui retourne ces valeurs sous forme d'un tableau qui sera
+sont conformes. La fonction retourne ces valeurs sous forme d'un tableau qui sera
 utilisé en aval. Si les valeurs sont inutilisables, la fonction `sortSanitizer` renvoie
-par défaut les valeurs `['datePosted', 'ASC']`.
+par défaut `['datePosted', 'ASC']`.
 
 Voilà la fonction :
 
