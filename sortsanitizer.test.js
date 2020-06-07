@@ -102,16 +102,15 @@ describe("sortSanitizerRefactored", () => {
         ).toEqual(["bar", "ASC"]);
     });
 
-    // ce test n'a pas de sens puisque sort est nécessairement un objet avec deux clés
-    // test("should remove the supernumerary parameters of the sorting array", () => {
-    //     const defaultSortableFields = ["foo", "bar"];
-    //     expect(
-    //         sortSanitizerRefactored(
-    //             ["bar", "DESC", "this", "is", "too", "much"],
-    //             defaultSortableFields
-    //         )
-    //     ).toEqual(["bar", "DESC"]);
-    // });
+    test("should remove the supernumerary parameters of the sort object", () => {
+        const defaultSortableFields = ["foo", "bar"];
+        expect(
+            sortSanitizerRefactored(
+                { sortBy: "bar", orderBy: "DESC", nonsense: "this" },
+                defaultSortableFields
+            )
+        ).toEqual(["bar", "DESC"]);
+    });
 
     test("should return a well formated sort from query parameter", () => {
         const defaultSortableFields = ["foo", "bar"];
