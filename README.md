@@ -103,6 +103,12 @@ Installer les dépendances:
 npm install
 ```
 
+Revenir au commit initial :
+
+```
+git checkout 7d29810
+```
+
 Lancer les tests:
 
 ```
@@ -110,3 +116,8 @@ npm run test
 ```
 
 Se creuser les méninges !
+Pour retrouver les solutions :
+
+``` 
+git checkout master
+```
